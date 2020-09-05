@@ -1,1 +1,5 @@
 *.json
+*.egg-info
+dist
+build
+setup.py

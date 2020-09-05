@@ -72,13 +72,13 @@ def alpha_of(n):
 		string = chr(65 + remainder) + string
 	return string
 
-if __name__ == '__main__':
+def run():
 	import sys
 	try:
 		file, sh_title, wsh_title, url_col_number, email_col_num, auth_json = sys.argv
 	except ValueError as e:
 		print('It need to be call like python email_extractor.py <spreadsheet_title> <worksheet_title> <url_col_number> <email_col_number> <service_account_json> below:\n-> python email_extractor backlinks http://google.com 1 5 account.json')
-		sys.exit()
+		sys.exit(e)
 	import gspread
 	gc = gspread.service_account(filename=auth_json)
 	print('service_account has been created sucessfully')
@@ -97,3 +97,6 @@ if __name__ == '__main__':
 		else:
 			print(crawled_page)
 		row += 1
+
+if __name__ == '__main__':
+	run()
